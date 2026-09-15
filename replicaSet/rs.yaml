@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: ReplicaSet
 metadata:
-  name: frontend
+  name: rs-test
   labels:
-    app: guestbook
-    tier: frontend
+    app: rs-test
 spec:
-  # modify replicas according to your case
   replicas: 3
   selector:
     matchLabels:
-      tier: frontend
+      app: rs-test
   template:
     metadata:
       labels:
-        tier: frontend
+        app: rs-test
     spec:
       containers:
-      - name: php-redis
-        image: us-docker.pkg.dev/google-samples/containers/gke/gb-frontend:v5
+      - name: cont1
+        image: nginx:1.14.2
+      - name: cont2
+        image: nginx:1.14.2
